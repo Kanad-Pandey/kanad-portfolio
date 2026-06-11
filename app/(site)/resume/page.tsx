@@ -19,16 +19,14 @@ export default function ResumePage() {
               Architectural Blueprint of Experience
             </p>
           </div>
-          <Button 
-            asChild
-            size="lg" 
-            className="rounded-full bg-white/5 border border-white/10 hover:bg-white/10 text-white gap-2 px-8 py-6 h-auto group"
+          <a 
+            href="/resume.pdf" 
+            download="Kanad_Pandey_Resume.pdf"
+            className="inline-flex items-center justify-center rounded-full bg-white/5 border border-white/10 hover:bg-white/10 text-white gap-2 px-8 py-4 transition-colors group"
           >
-            <a href="/resume.pdf" download="Kanad_Pandey_Resume.pdf">
-              <FileDown size={20} className="group-hover:translate-y-1 transition-transform" />
-              <span className="uppercase tracking-widest font-bold text-xs">Download PDF</span>
-            </a>
-          </Button>
+            <FileDown size={20} className="group-hover:translate-y-1 transition-transform" />
+            <span className="uppercase tracking-widest font-bold text-xs">Download PDF</span>
+          </a>
         </div>
 
         {/* Resume Canvas (Futuristic UI) */}
