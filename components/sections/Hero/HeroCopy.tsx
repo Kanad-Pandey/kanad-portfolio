@@ -1,7 +1,7 @@
 "use client";
 
 import { RevealText } from "@/components/motion/RevealText";
-import { Button } from "@/components/ui/Button";
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { easings } from "@/lib/motion";
 
@@ -43,13 +43,19 @@ export function HeroCopy() {
         </p>
         
         <div className="mt-12 flex flex-col items-center gap-6 sm:flex-row">
-          <Button size="lg" className="group relative overflow-hidden px-10 rounded-full border border-white/10 bg-white/5 backdrop-blur-sm">
+          <Link 
+            href="#projects" 
+            className="inline-flex h-12 items-center justify-center text-white group relative overflow-hidden px-10 rounded-full border border-white/10 bg-white/5 backdrop-blur-sm transition-colors hover:bg-white/10"
+          >
             <span className="relative z-10 uppercase tracking-widest text-[10px] font-bold">View Selected Works</span>
             <div className="absolute inset-0 -z-10 bg-gradient-to-r from-accent-violet/40 to-accent-cyan/40 opacity-0 transition-opacity group-hover:opacity-100" />
-          </Button>
-          <Button variant="outline" size="lg" className="px-10 rounded-full uppercase tracking-widest text-[10px] font-bold">
+          </Link>
+          <Link 
+            href="#contact" 
+            className="inline-flex h-12 items-center justify-center text-white px-10 rounded-full border border-white/20 bg-transparent hover:bg-white/10 transition-colors uppercase tracking-widest text-[10px] font-bold"
+          >
             Get in touch
-          </Button>
+          </Link>
         </div>
       </motion.div>
 
