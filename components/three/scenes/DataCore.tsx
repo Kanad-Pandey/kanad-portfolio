@@ -90,7 +90,7 @@ function NeuralPlexus({ count = 50, radius = 2.5, isDragging = false }: { count:
     <group>
       <points ref={pointsRef}>
         <bufferGeometry>
-          <bufferAttribute attach="attributes-position" count={200} array={new Float32Array(200*3)} itemSize={3} />
+          <bufferAttribute attach="attributes-position" args={[new Float32Array(200*3), 3]} />
         </bufferGeometry>
         <pointsMaterial color="#22D3EE" size={0.08} transparent opacity={0.9} sizeAttenuation={true} depthWrite={false} />
       </points>
