@@ -1,0 +1,49 @@
+---
+title: "Heart Attack Risk Assessment"
+description: "Advanced machine learning model using XGBoost to predict heart attack risk with high clinical accuracy."
+date: "2023-12-10"
+tags: ["AI/ML", "XGBoost", "Healthcare", "Python"]
+featured: false
+role: "ML Engineer"
+---
+
+## Overview
+
+Developed a binary classification model focused on medical diagnostics, achieving high predictive performance through rigorous feature engineering.
+
+<MetricGrid>
+  <MetricCard label="Model Accuracy" value="93%" description="ROC-AUC score on clinical test dataset." type="precision" />
+  <MetricCard label="Algorithm" value="XGBoost" description="Optimized via hyperparameter tuning." type="performance" />
+</MetricGrid>
+
+<ArchDiagram caption="ML Inference Pipeline">
+  <div className="flex gap-4 text-white font-mono text-[10px]">
+    <div className="p-3 bg-white/5 border border-white/20 rounded">DATA PREPROCESSING</div>
+    <div className="p-3 bg-accent-cyan/10 border border-accent-cyan/20 rounded">FEATURE ENGINEERING</div>
+    <div className="p-3 bg-accent-violet/10 border border-accent-violet/20 rounded">XGBOOST CLASSIFIER</div>
+  </div>
+</ArchDiagram>
+
+## Technical Execution
+
+- **Feature Engineering:** Processed clinical features including vital signs and medical history.
+- **Optimization:** Utilized GridSearch for hyperparameter tuning to maximize ROC-AUC.
+- **Diagnostics:** Implemented SHAP values to explain model predictions for clinical trust.
+
+<CodeBlock 
+  filename="train_model.py"
+  language="python"
+  code={`import xgboost as xgb
+from sklearn.metrics import roc_auc_score
+
+model = xgb.XGBClassifier(
+    learning_rate=0.01,
+    n_estimators=1000,
+    max_depth=5,
+    subsample=0.8
+)
+
+model.fit(X_train, y_train)
+preds = model.predict_proba(X_test)[:, 1]
+print(f"ROC-AUC: {roc_auc_score(y_test, preds)}")`}
+/>

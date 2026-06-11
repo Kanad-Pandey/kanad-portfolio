@@ -1,0 +1,66 @@
+---
+title: "AI-Powered KOL Identification Engine"
+description: "Designed a Python-based intelligent matching framework utilizing NPI Registry APIs, multi-threaded processing, and fuzzy matching to identify Key Opinion Leaders from fragmented healthcare provider datasets."
+date: "2024-06-01"
+tags: ["AI/ML", "Python", "Pharma", "Analytics"]
+featured: true
+client: "Pharma Giant"
+role: "Lead Data Scientist"
+---
+
+## Business Challenge
+
+Commercial teams required a scalable approach to identify and enrich Key Opinion Leaders (KOLs) from fragmented healthcare provider datasets.
+
+<MetricGrid>
+  <MetricCard label="Effort Reduction" value="70%" description="Reduction in manual review time for commercial teams." type="performance" />
+  <MetricCard label="Data Enrichment" value="10k+" description="Providers enriched with deep metadata monthly." type="precision" />
+</MetricGrid>
+
+<ArchDiagram caption="KOL Enrichment & Matching Architecture">
+  <div className="flex flex-col md:flex-row items-center gap-6 text-white font-mono text-[10px]">
+    <div className="p-4 border border-white/20 rounded bg-white/5">RAW HCP DATA</div>
+    <div className="text-accent-cyan">→ FUZZY MATCHER →</div>
+    <div className="p-4 border border-accent-violet/30 rounded bg-accent-violet/5">NPI REGISTRY API</div>
+    <div className="text-accent-cyan">→ ENRICHMENT →</div>
+    <div className="p-4 border border-green-400/30 rounded bg-green-400/5">VERIFIED KOL PROFILE</div>
+  </div>
+</ArchDiagram>
+
+## Solution
+
+Developed an end-to-end intelligent matching and enrichment framework:
+
+<CodeBlock 
+  filename="kol_matcher.py"
+  language="python"
+  code={`from rapidfuzz import process, fuzz
+
+def identify_kol(raw_name, registry_db):
+    # High-performance fuzzy matching against NPI registry
+    match = process.extractOne(
+        raw_name, 
+        registry_db, 
+        scorer=fuzz.token_sort_ratio
+    )
+    
+    if match and match[1] > 90:
+        return enrich_provider_profile(match[0])
+    return None`}
+/>
+
+- **Intelligent Matching:** Leveraged `RapidFuzz` for high-performance string matching against NPI registries.
+- **High-Throughput Processing:** Implemented multi-threading to handle large-scale provider datasets efficiently.
+- **API Integration:** Automated enrichment using NPI Registry and other healthcare data APIs.
+
+## Impact
+
+- **Efficiency:** Significantly reduced manual review effort for commercial teams.
+- **Accuracy:** Improved physician matching precision across disparate data sources.
+- **Scale:** Accelerated the KOL identification process for new therapeutic areas.
+
+## Tech Stack
+
+- **Language:** Python
+- **Libraries:** Pandas, RapidFuzz, Requests
+- **Techniques:** Multi-threading, Fuzzy Matching, API Integration

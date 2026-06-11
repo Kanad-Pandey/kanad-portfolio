@@ -1,0 +1,40 @@
+---
+title: "HCP Engagement Analytics"
+description: "Integrated omnichannel data to map the physician journey and identify the highest-impact touchpoints for pharmaceutical brands."
+date: "2024-01-20"
+tags: ["Data Engineering", "Pharma", "Omnichannel", "Python"]
+featured: true
+client: "Global Pharma Brand"
+role: "Lead Analytics Consultant"
+---
+
+## Business Challenge
+
+The client had fragmented data across email, web, and face-to-face interactions, preventing a unified view of HCP engagement and preference.
+
+<MetricGrid>
+  <MetricCard label="Data Velocity" value="2M+" description="Interaction records processed weekly." type="performance" />
+  <MetricCard label="Segment Accuracy" value="95%" description="Precision in identifying HCP channel preference." type="precision" />
+</MetricGrid>
+
+<ArchDiagram caption="Omnichannel HCP Journey Mapper">
+  <div className="flex flex-col md:flex-row items-center gap-4 text-white font-mono text-[9px]">
+    <div className="flex flex-col gap-2">
+      <div className="p-2 border border-white/10 rounded">EMAIL DATA</div>
+      <div className="p-2 border border-white/10 rounded">WEB LOGS</div>
+      <div className="p-2 border border-white/10 rounded">CRM LOGS</div>
+    </div>
+    <div className="text-accent-cyan">→ AZURE DATA FACTORY →</div>
+    <div className="p-4 border border-accent-cyan/30 rounded bg-accent-cyan/5">UNIFIED HCP LAKE</div>
+    <div className="text-accent-violet">→ ML SCORING →</div>
+    <div className="p-4 border border-accent-violet/30 rounded bg-accent-violet/5">NEXT BEST ACTION</div>
+  </div>
+</ArchDiagram>
+
+## Solution
+
+Engineered a unified engagement intelligence platform:
+
+- **Data Fusion:** Built automated pipelines to ingest and normalize data from over 5 disparate sources into a centralized Snowflake repository.
+- **Scoring Engine:** Developed a multi-touch attribution model to weight the impact of each interaction on the final prescribing decision.
+- **Field Alerts:** Integrated the engine with the field CRM to provide sales reps with real-time "Next Best Action" recommendations.

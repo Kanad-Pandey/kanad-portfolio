@@ -1,0 +1,43 @@
+---
+title: "Dataverse-to-Snowflake Integration"
+description: "Developed a cloud-native ingestion framework for multi-environment extraction, schema standardization, and automated synchronization between CRM and Snowflake."
+date: "2024-02-10"
+tags: ["Data Engineering", "Snowflake", "Azure", "SQL"]
+featured: true
+client: "Retail & Pharma Enterprise"
+role: "Cloud Data Architect"
+---
+
+## Business Challenge
+
+Commercial data was fragmented across multiple CRM environments, preventing a "single source of truth".
+
+<ArchDiagram caption="Dataverse to Snowflake Ingestion Flow">
+  <div className="flex flex-col md:flex-row items-center gap-8 text-white font-mono text-xs">
+    <div className="p-4 border border-white/20 rounded-lg bg-white/5">MS DATAVERSE</div>
+    <div className="text-accent-cyan">→ AZURE FUNCTIONS →</div>
+    <div className="p-4 border border-accent-cyan/40 rounded-lg bg-accent-cyan/5">SNOWFLAKE STAGING</div>
+    <div className="text-accent-violet">→ TRANSFORM →</div>
+    <div className="p-4 border border-accent-violet/40 rounded-lg bg-accent-violet/5">ANALYTICS LAYER</div>
+  </div>
+</ArchDiagram>
+
+## Solution
+
+Engineered a robust, scalable integration platform:
+
+- **Incremental Loading:** Implemented logic to extract only changed data, reducing compute costs.
+- **Schema Standardization:** Automated the mapping of disparate Dataverse schemas into a unified Snowflake star-schema.
+- **Reliability:** Built-in error handling and automated synchronization recovery.
+
+## Impact
+
+- **Consistency:** Unified the commercial data ecosystem for reliable reporting.
+- **Efficiency:** Significantly reduced manual data integration and cleanup efforts.
+- **Readiness:** Enabled advanced enterprise analytics and AI use cases.
+
+## Tech Stack
+
+- **Data Warehouse:** Snowflake
+- **Cloud:** Azure (Functions, Data Factory)
+- **Source:** Dataverse, REST APIs

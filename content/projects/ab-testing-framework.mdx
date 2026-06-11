@@ -1,0 +1,53 @@
+---
+title: "Commercial A/B Testing Framework"
+description: "Built a statistical experimentation engine to optimize promotional channel spend and field force messaging efficacy in the life sciences domain."
+date: "2024-03-05"
+tags: ["Data Science", "Pharma", "Statistics", "A/B Testing"]
+featured: true
+client: "Commercial Excellence Unit"
+role: "Data Scientist"
+---
+
+## Business Challenge
+
+Commercial teams struggled to quantify the ROI of different promotional channels and messaging strategies, leading to sub-optimal budget allocation.
+
+<MetricGrid>
+  <MetricCard label="ROI Improvement" value="+22%" description="Increase in promotional spend efficiency." type="growth" />
+  <MetricCard label="Test Volume" value="15+" description="Concurrent experiments orchestrated monthly." type="performance" />
+</MetricGrid>
+
+<ArchDiagram caption="Statistical Experimentation Pipeline">
+  <div className="flex flex-col md:flex-row items-center gap-6 text-white font-mono text-[10px]">
+    <div className="p-3 border border-white/20 rounded bg-white/5">HCP SEGMENTS</div>
+    <div className="text-accent-cyan">→ RANDOMIZATION →</div>
+    <div className="p-3 border border-accent-violet/30 rounded bg-accent-violet/5">PROMO VARIANTS</div>
+    <div className="text-accent-cyan">→ BAYESIAN ANALYZER →</div>
+    <div className="p-3 border border-green-400/30 rounded bg-green-400/5">WINNING STRATEGY</div>
+  </div>
+</ArchDiagram>
+
+## Solution
+
+Developed a robust, multi-channel A/B testing framework:
+
+- **HCP Randomization:** Implemented balanced randomization logic to ensure comparable test and control groups across therapeutic areas.
+- **Bayesian Inference:** Leveraged Bayesian statistical models to provide real-time probability-to-win metrics for ongoing experiments.
+- **Reporting:** Built automated Power BI dashboards to communicate experimental results and confidence intervals to executive leadership.
+
+<CodeBlock 
+  filename="ab_test_analyzer.py"
+  language="python"
+  code={`import scipy.stats as stats
+
+def analyze_lift(control_sales, variant_sales):
+    # Calculate statistical lift and p-value
+    t_stat, p_val = stats.ttest_ind(variant_sales, control_sales)
+    lift = (variant_sales.mean() - control_sales.mean()) / control_sales.mean()
+    
+    return {
+        "lift": f"{lift:.2%}",
+        "confidence": f"{1 - p_val:.2%}",
+        "is_significant": p_val < 0.05
+    }`}
+/>

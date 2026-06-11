@@ -1,0 +1,49 @@
+---
+title: "Automated Resume Review System"
+description: "An intelligent resume screening system using n8n orchestration and GPT-4 to provide real-time scored feedback."
+date: "2024-02-15"
+tags: ["GenAI", "n8n", "GPT-4", "Automation"]
+featured: false
+role: "Lead Developer"
+---
+
+## Overview
+
+Designed a high-throughput automation workflow to streamline the recruitment process by providing immediate, intelligent feedback on candidate resumes.
+
+<MetricGrid>
+  <MetricCard label="Processing Speed" value="Real-time" description="Instant feedback upon submission." type="performance" />
+  <MetricCard label="Model" value="GPT-4" description="Prompt-engineered for precision scoring." type="precision" />
+</MetricGrid>
+
+<ArchDiagram caption="Agentic Resume Review Workflow">
+  <div className="flex flex-col md:flex-row items-center gap-4 text-white font-mono text-xs">
+    <div className="p-3 bg-white/5 border border-white/20 rounded">PDF INPUT</div>
+    <div className="text-accent-cyan">→ n8n →</div>
+    <div className="p-3 bg-accent-violet/10 border border-accent-violet/30 rounded">GPT-4 PROMPT</div>
+    <div className="text-accent-cyan">→ GOOGLE SHEETS →</div>
+    <div className="p-3 bg-green-400/10 border border-green-400/30 rounded">SCORING</div>
+  </div>
+</ArchDiagram>
+
+## Solution
+
+Leveraged low-code orchestration combined with high-performance LLMs:
+
+- **Orchestration:** Used `n8n` to manage data flow between Google Sheets and the OpenAI API.
+- **Prompt Engineering:** Developed sophisticated system prompts to ensure consistent and objective resume scoring.
+- **Workflow:** Automated the extraction of resume text, scoring against job descriptions, and returning detailed feedback.
+
+<CodeBlock 
+  filename="workflow_node.json"
+  language="json"
+  code={`{
+  "name": "GPT-4 Scorer",
+  "type": "n8n-nodes-base.openAi",
+  "parameters": {
+    "resource": "chat",
+    "model": "gpt-4",
+    "prompt": "Evaluate the following resume against the JD. Provide a score from 1-10..."
+  }
+}`}
+/>
