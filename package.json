@@ -41,5 +41,24 @@
     "postcss": "^8.5.15",
     "tailwindcss": "^4.0.0",
     "typescript": "^5.4.5"
+  },
+  "overrides": {
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "@react-three/drei": {
+      "@react-three/fiber": "^9.0.0"
+    },
+    "@react-spring/animated": {
+      "react": "^19.0.0"
+    },
+    "@react-spring/core": {
+      "react": "^19.0.0"
+    },
+    "@react-spring/shared": {
+      "react": "^19.0.0"
+    },
+    "@react-spring/three": {
+      "react": "^19.0.0"
+    }
   }
 }
